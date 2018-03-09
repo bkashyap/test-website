@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-node
-        image: 127.0.0.1:30400/hello-node:latest2
+        image: 127.0.0.1:30400/hello-node:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
