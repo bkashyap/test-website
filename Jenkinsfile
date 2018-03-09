@@ -23,5 +23,5 @@ node {
     stage "Deploy"
 
         sh "kubectl apply -f deployment.yaml"
-        sh "kubectl rollout status deployment/hello-node"
+        sh "kubectl rollout status deployment/hello-node-deployment"
 }
