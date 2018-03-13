@@ -22,7 +22,7 @@ node {
 
     stage "Deploy"
 
-        sh "sed 's#127.0.0.1:30400/hello-node:latest#'$BUILDIMG'#' deployment.yaml
+        sh "sed 's#127.0.0.1:30400/hello-node:latest#'$BUILDIMG'#' deployment.yaml"
         sh "kubectl apply -f deployment.yaml"
         sh "kubectl rollout status deployment/hello-node-deployment"
 }
