@@ -9,7 +9,7 @@ node {
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     appName = "hello-node"
     registryHost = "127.0.0.1:30400/"
-    imageName = "${registryHost}${appName}:latest"
+    imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 
     stage "Build"
@@ -22,6 +22,7 @@ node {
 
     stage "Deploy"
 
+        sh "sed 's#127.0.0.1:30400/hello-node:latest#'$BUILDIMG'#' deployment.yaml
         sh "kubectl apply -f deployment.yaml"
         sh "kubectl rollout status deployment/hello-node-deployment"
 }
