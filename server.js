@@ -1,9 +1,10 @@
 var http = require('http');
+console.log('starting nodejs server');
 
 var handleRequest = function(request, response) {
   console.log('Received request for URL: ' + request.url);
   response.writeHead(200);
-  response.end('Yo wassssup dude, this is a test for Yao');
+  response.end('Hello worldyashri');
 };
 var www = http.createServer(handleRequest);
 www.listen(8081);
